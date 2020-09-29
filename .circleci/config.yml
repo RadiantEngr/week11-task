@@ -1,14 +1,14 @@
 version: 2.1
-    jobs:
-        build:
-            work_directory: ~/week11-task
-            docker:
-                - image: circleci/node:10.16.3
-            steps:
-                - checkout
-                - run:
-                    name: install-packages
-                    command: yarn
-                - run:
-                    name: test
-                    command: yarn test
+jobs:
+    build:
+        work_directory: ~/week11-task
+        docker:
+            - image: circleci/node:10.16.3
+        steps:
+            - checkout
+            - run:
+                name: install-packages
+                command: yarn
+            - run:
+                name: test
+                command: yarn test
