@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
     build:
-        work_directory: ~/week11-task
+        working_directory: ~/week11-task
         docker:
             - image: circleci/node:10.16.3
         steps:
