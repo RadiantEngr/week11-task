@@ -59,45 +59,45 @@ describe("/graphql1", () => {
       }
     });
 
-    it("can fetch an organization", async () => {
-      request
-        .post("/graphql1")
-        .send({
-          query:
-            '{ organization(id: "5f732aa663bce128ebd3dd4a") { id, organization, country } }',
-        })
-        .set("Accept", "application.json")
-        .expect("Content-Type", /json/)
-        .expect(200)
-        .end((err, res) => {
-          if (err) return err.message;
-          console.log(res.body);
-          const val = res.body.data.organization;
-          expect(val).toHaveProperty("_id");
-          expect(val).toHaveProperty("organization");
-        });
-    });
+    // it("can fetch an organization", async () => {
+    //   request
+    //     .post("/graphql1")
+    //     .send({
+    //       query:
+    //         '{ organization(id: "5f732aa663bce128ebd3dd4a") { id, organization, country } }',
+    //     })
+    //     .set("Accept", "application.json")
+    //     .expect("Content-Type", /json/)
+    //     .expect(200)
+    //     .end((err, res) => {
+    //       if (err) return err.message;
+    //       console.log(res.body);
+    //       const val = res.body.data.organization;
+    //       expect(val).toHaveProperty("_id");
+    //       expect(val).toHaveProperty("organization");
+    //     });
+    // });
 
-    it("can add to organizations", () => {
-      request
-        .post("/graphql1")
-        .send({
-          query:
-            'mutation {addOrganization(organization:"Pito Bank",products: ["Transfer", "Withdrawal"],marketValue: "92%", address: "Lacagan", ceo:"Mr Abass", country: "Nigeria", employees: ["Bisi", "Kenny", "Silver"]){organization, products}}',
-        })
-        .set("Accept", "application.json")
-        .expect("Content-Type", /json/)
-        .expect(200)
-        .end((err, res) => {
-          console.log(res);
-          if (err) return err.message;
+    // it("can add to organizations", () => {
+    //   request
+    //     .post("/graphql1")
+    //     .send({
+    //       query:
+    //         'mutation {addOrganization(organization:"Pito Bank",products: ["Transfer", "Withdrawal"],marketValue: "92%", address: "Lacagan", ceo:"Mr Abass", country: "Nigeria", employees: ["Bisi", "Kenny", "Silver"]){organization, products}}',
+    //     })
+    //     .set("Accept", "application.json")
+    //     .expect("Content-Type", /json/)
+    //     .expect(200)
+    //     .end((err, res) => {
+    //       console.log(res);
+    //       if (err) return err.message;
 
-          const val = res.body.data.addOrganization;
-          expect(val).toHaveProperty("organization");
-          expect(val).toHaveProperty("ceo");
-          expect(val).toHaveProperty("marketValue");
-        });
-    });
+    //       const val = res.body.data.addOrganization;
+    //       expect(val).toHaveProperty("organization");
+    //       expect(val).toHaveProperty("ceo");
+    //       expect(val).toHaveProperty("marketValue");
+    //     });
+    // });
 
     // it("can update organization", () => {
     //   request
