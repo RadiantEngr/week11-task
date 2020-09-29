@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "jest --watchAll --verbose --testMatch ./dist/tests/test.js"
+    "test": "jest --watchAll --verbose ./tests/test.ts"
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.10.4",

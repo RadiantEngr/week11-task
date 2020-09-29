@@ -15,7 +15,7 @@ const mongodb = new MongoMemoryServer();
 
 let server;
 
-describe("/graphql1", () => {
+describe("/graphql", () => {
   beforeAll(() => {
     server = require("../app");
   });
@@ -24,11 +24,13 @@ describe("/graphql1", () => {
     server.close();
   });
 
+  
   describe("All Test Suites", () => {
+  
     it("can fetch all organizations", async () => {
       try {
         request
-          .post("/graphql1")
+          .post("/graphql")
           .send({
             query: "{organizations{id, organization, ceo}}",
           })
@@ -46,7 +48,7 @@ describe("/graphql1", () => {
 
     // it("can fetch an organization", async () => {
     //     request
-    //       .post('/graphql1')
+    //       .post('/graphql')
     //       .send({
     //         query:
     //           '{ organization(id: "5f732aa663bce128ebd3dd4a") { id, organization, country } }',
@@ -56,6 +58,7 @@ describe("/graphql1", () => {
     //       .expect(200)
     //       .end((err, res) => {
     //         if (err) return err.message;
+    //         console.log(res.body);
     //         const val = res.body.data.organization;
     //         expect(val).toHaveProperty("_id")
     //         expect(val).toHaveProperty("organization");
@@ -64,7 +67,7 @@ describe("/graphql1", () => {
 
     // it("can add to organizations", () => {
     //   request
-    //     .post("/graphql1")
+    //     .post("/graphql")
     //     .send({
     //       query:
     //         'mutation {addOrganization(organization:"Pito Bank",products: ["Transfer", "Withdrawal"],marketValue: "92%", address: "Lacagan", ceo:"Mr Abass", country: "Nigeria", employees: ["Bisi", "Kenny", "Silver"]){organization, products}}',
