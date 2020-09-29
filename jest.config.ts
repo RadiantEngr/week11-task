@@ -1,5 +1,5 @@
 export default {
-  roots: ["<rootDir>/dist"],
+  roots: ["<rootDir>"],
   testMatch: [
     "**/__tests__/**/*.+(ts|tsx|js)",
     "**/?(*.)+(spec|test).+(ts|tsx|js)",

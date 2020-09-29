@@ -36,6 +36,7 @@ describe("/graphql1", () => {
 
   afterAll(() => {
     server.close();
+    closeDatabase();
   });
 
   describe("All Test Suites", () => {
