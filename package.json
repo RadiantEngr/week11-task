@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "jest --watchAll --verbose ./tests/test.ts"
+    "test": "jest --verbose ./tests/test.ts"
+  },
+  "engines": {
+    "node": "12.18.3"
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.10.4",
@@ -17,6 +20,7 @@
     "babel-preset-env": "^1.7.0",
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
@@ -25,6 +29,7 @@
     "express-error-handler": "^1.1.0",
     "express-graphql": "^0.11.0",
     "graphql": "^15.3.0",
+    "helmet": "^4.1.1",
     "http-errors": "~1.6.3",
     "jest": "^26.4.2",
     "joi": "^17.2.1",
