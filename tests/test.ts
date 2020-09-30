@@ -9,6 +9,7 @@ import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
 import app from "../app"
 import { graphql } from "graphql";
+import { doesNotMatch } from "assert";
 
 const mongod = new MongoMemoryServer();
 
@@ -35,11 +36,7 @@ let server;
 
   afterEach(async () => clearDatabase());
 
-  afterAll(() => {
-    // server.close();
-    closeDatabase();
-  });
-
+  
   describe("All Test Suites",  () => {
     it("can fetch all organizations", async (done) => {
         request
@@ -104,7 +101,13 @@ let server;
           // expect(val).toHaveProperty("marketValue");
           done()
         })
+        afterAll(() => {
+          mongoose.connection.close();
+          done();
+        });
   })
+  
+
 })
     // it("can update organization", () => {
     //   try {
@@ -204,3 +207,4 @@ let server;
 
   // }
   // })
+  
